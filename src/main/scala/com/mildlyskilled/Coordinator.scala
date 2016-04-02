@@ -1,12 +1,13 @@
 package com.mildlyskilled
 
+import akka.actor.Actor
+
 /**
   * TODO
   * Make this an actor and write a message handler for at least the
   * set method.
   */
-
-object Coordinator {
+object Coordinator extends Actor {
   
   def init(im: Image, of: String) = {
     image = im
@@ -20,9 +21,15 @@ object Coordinator {
   var image: Image = null
 
   // TODO: make set a message
+  override def receive = {
+    case pixel(x, y, c) =>
+      set(x, y, c)
+  }
+  
   def set(x: Int, y: Int, c: Colour) = {
     image(x, y) = c
     waiting -= 1
+    if (waiting < 1) print
   }
 
   def print = {
@@ -31,3 +38,5 @@ object Coordinator {
   }
   
 }
+
+case class pixel(x: Int, y: Int, c: Colour) {}
