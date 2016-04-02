@@ -22,7 +22,7 @@ object Coordinator extends Actor {
 
   // TODO: make set a message
   override def receive = {
-    case pixel(x, y, c) =>
+    case Pixel(x, y, c) =>
       set(x, y, c)
   }
   
@@ -39,4 +39,4 @@ object Coordinator extends Actor {
   
 }
 
-case class pixel(x: Int, y: Int, c: Colour) {}
+case class Pixel(x: Int, y: Int, c: Colour) {}
