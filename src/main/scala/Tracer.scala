@@ -1,5 +1,9 @@
 import com.mildlyskilled.{Scene, Image, Coordinator, Trace}
 
+/**
+ * Coursework 3 for SDP by:
+ * vdiasf01 - Vasco Horta
+ */
 object Tracer extends App {
 
   val (infile, outfile) = ("src/main/resources/input.dat", "output.png")
