@@ -1,3 +1,7 @@
+import java.awt.Image
+
+import akka.actor.{Props, ActorSystem}
+import com.mildlyskilled.Image
 import com.mildlyskilled.{Image, Coordinator, Trace, Scene}
 
 /**
@@ -9,6 +13,7 @@ import com.mildlyskilled.{Image, Coordinator, Trace, Scene}
  */
 object Tracer extends App {
 
+  val system = ActorSystem.create("Ray Tracer")
   val (infile, outfile) = ("src/main/resources/input.dat", "output.png")
   val scene = Scene.fromFile(infile)
   val t = new Trace
@@ -27,6 +32,7 @@ object Tracer extends App {
     Coordinator.init(image, outfile)
 
     // TODO: Start the Coordinator actor.
+    system.actorOf(Props[Coordinator], name = "coordinator")
 
     scene.traceImage(width, height)
 

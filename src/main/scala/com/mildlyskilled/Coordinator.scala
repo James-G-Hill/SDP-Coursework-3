@@ -25,7 +25,7 @@ object Coordinator extends Actor {
     case Pixel(x, y, c) =>
       set(x, y, c)
   }
-  
+
   def set(x: Int, y: Int, c: Colour) = {
     image(x, y) = c
     waiting -= 1
@@ -36,7 +36,10 @@ object Coordinator extends Actor {
     assert(waiting == 0)
     image.print(outfile)
   }
-  
+}
+
+class Coordinator extends Actor {
+  override def receive {}
 }
 
 case class Pixel(x: Int, y: Int, c: Colour) {}
