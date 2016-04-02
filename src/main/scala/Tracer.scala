@@ -1,9 +1,10 @@
-import com.mildlyskilled.{Scene, Image, Coordinator, Trace}
+import com.mildlyskilled.{Image, Coordinator, Trace}
 
 /**
  * Coursework 3 for SDP by:
  * vdiasf01 - Vasco Horta
   *eveera01 - Ehshan Veerabangsa
+  * kmensa01 - Kwabena mensa-Bonsu
  */
 object Tracer extends App {
 
