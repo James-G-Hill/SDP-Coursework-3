@@ -10,7 +10,7 @@ import com.mildlyskilled.{Image, Coordinator, Trace, Scene}
  */
 object Tracer extends App {
 
-  val system = ActorSystem.create("Ray Tracer")
+  val system = ActorSystem.create("RayTracer")
   val (infile, outfile) = ("src/main/resources/input.dat", "output.png")
   val scene = Scene.fromFile(infile)
   val t = new Trace
