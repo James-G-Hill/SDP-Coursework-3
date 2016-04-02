@@ -1,7 +1,4 @@
-import java.awt.Image
-
 import akka.actor.{Props, ActorSystem}
-import com.mildlyskilled.Image
 import com.mildlyskilled.{Image, Coordinator, Trace, Scene}
 
 /**
