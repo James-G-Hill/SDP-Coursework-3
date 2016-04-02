@@ -205,4 +205,3 @@ class Scene private(val objects: List[Shape], val lights: List[Light]) {
     }
   }
 }
-

@@ -7,6 +7,7 @@ package com.mildlyskilled
   */
 
 object Coordinator {
+  
   def init(im: Image, of: String) = {
     image = im
     outfile = of
@@ -28,4 +29,5 @@ object Coordinator {
     assert(waiting == 0)
     image.print(outfile)
   }
+  
 }

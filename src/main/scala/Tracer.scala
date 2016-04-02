@@ -1,5 +1,3 @@
-import java.io.File
-
 import com.mildlyskilled.{Scene, Image, Coordinator, Trace}
 
 object Tracer extends App {
@@ -15,6 +13,7 @@ object Tracer extends App {
   println("dark " + t.darkCount)
 
   def render(scene: Scene, outfile: String, width: Int, height: Int) = {
+    
     val image = new Image(width, height)
 
     // Init the coordinator -- must be done before starting it.
@@ -29,6 +28,7 @@ object Tracer extends App {
     // the image, since the actors started by traceImage haven't necessarily
     // finished yet.  Maybe print should be called elsewhere?
     Coordinator.print
+    
   }
 
 }
