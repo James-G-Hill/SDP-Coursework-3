@@ -37,8 +37,9 @@ object Coordinator {
  */
 class Coordinator extends Actor {
     override def receive = {
-      case Pixel(x, y, c) =>
+      case Pixel(x, y, c) =>{
         Coordinator.set(x, y, c)
+      }
     }
 }
 
