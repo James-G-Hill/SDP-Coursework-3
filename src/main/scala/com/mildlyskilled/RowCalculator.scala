@@ -12,6 +12,8 @@ import akka.actor.Actor
 class RowCalculator (t:Trace,s:Scene,y:Int,eye:Vector)extends Actor{
 
   def calculator(width:Int,height:Int,sinf:Double,cosf:Double): Unit ={
+
+
     val ss =t.AntiAliasingFactor
     for (x <- 0 until width) {
 
@@ -38,12 +40,16 @@ class RowCalculator (t:Trace,s:Scene,y:Int,eye:Vector)extends Actor{
       if (Vector(colour.r, colour.g, colour.b).norm > 1)
         t.lightCount += 1
 
-      val p = new Pixel(x,y,colour)
-      context.actorSelection("*/coordinator") ! p
+      val pixel = new Pixel(x,y,colour)
+      val coordinatorActor = context.actorSelection("//RayTracer/user/coordinator")
+      coordinatorActor ! pixel
     }
   }
 
-  override def receive: Unit ={
+  override def receive ={
+    case Argu(width, height, sinf, cosf) => {
+      calculator(width, height, sinf, cosf)
+    }
 
  }
 
