@@ -1,5 +1,6 @@
-import akka.actor.{Props, ActorSystem}
-import com.mildlyskilled.{Image, Coordinator, Trace, Scene}
+package com.mildlyskilled
+
+import akka.actor.{ActorSystem, Props}
 
 /**
  * Coursework 3 for SDP by:
